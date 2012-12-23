@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "ObjectInstancializationService.h"
+#import "TestClass.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [ObjectInstancializationService instantialize:[TestClass class]];
     // Override point for customization after application launch.
     return YES;
 }
