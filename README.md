@@ -4,7 +4,7 @@ Train
 a simple dependency injection framework for objective c, written while traveling in a train!
 
 ## Usage
-Add an Ivar to your Class file with the IOC prefix _ioc_ and the service you want to inject:
+Add an Ivar to your Class file with the IOC prefix and the service you want to inject:
 
 ```objectivec
     // .m
