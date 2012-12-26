@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class LabelProvider;
+
 @interface ViewController : UIViewController
 
 @end

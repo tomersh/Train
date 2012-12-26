@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696C10D5FB79DBC295D90AD4 /* ColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* ColorProvider.m */; };
+		696C1915743C33EEDE899328 /* LabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C146487B674C0C027BE10 /* LabelProvider.m */; };
+		696C1CF9B3B8B1F3201585F9 /* LabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C146487B674C0C027BE10 /* LabelProvider.m */; };
+		696C1EF0D06651F9DBC89BC4 /* ColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* ColorProvider.m */; };
 		F1106F091680C968000B3187 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F081680C968000B3187 /* UIKit.framework */; };
 		F1106F0B1680C968000B3187 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0A1680C968000B3187 /* Foundation.framework */; };
 		F1106F0D1680C968000B3187 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0C1680C968000B3187 /* CoreGraphics.framework */; };
@@ -22,6 +26,16 @@
 		F1106F321680C969000B3187 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0A1680C968000B3187 /* Foundation.framework */; };
 		F1106F3A1680C969000B3187 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1106F381680C969000B3187 /* InfoPlist.strings */; };
 		F1106F3D1680C969000B3187 /* TrainSampleProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F3C1680C969000B3187 /* TrainSampleProjectTests.m */; };
+		F1106F491681AB7D000B3187 /* ProtocolLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F481681AB7D000B3187 /* ProtocolLocator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F1106F4A1681AB7D000B3187 /* ProtocolLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F481681AB7D000B3187 /* ProtocolLocator.m */; };
+		F17814F716823042000DEB80 /* ObjectInstancializationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F17814F616823042000DEB80 /* ObjectInstancializationService.m */; };
+		F17814F816823042000DEB80 /* ObjectInstancializationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F17814F616823042000DEB80 /* ObjectInstancializationService.m */; };
+		F1DFEBA8168AFAE8009BB0B4 /* TextProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */; };
+		F1DFEBA9168AFAE8009BB0B4 /* TextProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */; };
+		F1DFEBAD168AFD96009BB0B4 /* FontProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */; };
+		F1DFEBAE168AFD96009BB0B4 /* FontProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */; };
+		F1DFEBB1168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */; };
+		F1DFEBB2168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		696C146487B674C0C027BE10 /* LabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelProvider.m; sourceTree = "<group>"; };
+		696C1B217BA56A6B79DBAD53 /* ColorProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorProvider.h; sourceTree = "<group>"; };
+		696C1BF1453292D6AA60638F /* ColorProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorProvider.m; sourceTree = "<group>"; };
+		696C1DAC52EE4509886FA46C /* LabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelProvider.h; sourceTree = "<group>"; };
 		F1106F041680C968000B3187 /* TrainSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1106F081680C968000B3187 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1106F0A1680C968000B3187 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +74,17 @@
 		F1106F391680C969000B3187 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F1106F3B1680C969000B3187 /* TrainSampleProjectTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainSampleProjectTests.h; sourceTree = "<group>"; };
 		F1106F3C1680C969000B3187 /* TrainSampleProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrainSampleProjectTests.m; sourceTree = "<group>"; };
+		F1106F481681AB7D000B3187 /* ProtocolLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolLocator.m; sourceTree = "<group>"; };
+		F1106F4B1681AB94000B3187 /* ProtocolLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolLocator.h; sourceTree = "<group>"; };
+		F17814F516823042000DEB80 /* ObjectInstancializationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectInstancializationService.h; sourceTree = "<group>"; };
+		F17814F616823042000DEB80 /* ObjectInstancializationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInstancializationService.m; sourceTree = "<group>"; };
+		F17814FA1682320E000DEB80 /* IOCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCDefines.h; sourceTree = "<group>"; };
+		F1DFEBA6168AFAE8009BB0B4 /* TextProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextProvider.h; sourceTree = "<group>"; };
+		F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextProvider.m; sourceTree = "<group>"; };
+		F1DFEBAB168AFD96009BB0B4 /* FontProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontProvider.h; sourceTree = "<group>"; };
+		F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontProvider.m; sourceTree = "<group>"; };
+		F1DFEBAF168AFF14009BB0B4 /* AutoresizingMaskProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoresizingMaskProvider.h; sourceTree = "<group>"; };
+		F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoresizingMaskProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +150,16 @@
 				F1106F261680C969000B3187 /* ViewController.h */,
 				F1106F271680C969000B3187 /* ViewController.m */,
 				F1106F0F1680C968000B3187 /* Supporting Files */,
+				696C146487B674C0C027BE10 /* LabelProvider.m */,
+				696C1DAC52EE4509886FA46C /* LabelProvider.h */,
+				696C1BF1453292D6AA60638F /* ColorProvider.m */,
+				696C1B217BA56A6B79DBAD53 /* ColorProvider.h */,
+				F1DFEBA6168AFAE8009BB0B4 /* TextProvider.h */,
+				F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */,
+				F1DFEBAB168AFD96009BB0B4 /* FontProvider.h */,
+				F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */,
+				F1DFEBAF168AFF14009BB0B4 /* AutoresizingMaskProvider.h */,
+				F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */,
 			);
 			path = TrainSampleProject;
 			sourceTree = "<group>";
@@ -161,6 +200,11 @@
 		F1106F461680CA4D000B3187 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F1106F4B1681AB94000B3187 /* ProtocolLocator.h */,
+				F1106F481681AB7D000B3187 /* ProtocolLocator.m */,
+				F17814F516823042000DEB80 /* ObjectInstancializationService.h */,
+				F17814F616823042000DEB80 /* ObjectInstancializationService.m */,
+				F17814FA1682320E000DEB80 /* IOCDefines.h */,
 			);
 			name = src;
 			path = ../src;
@@ -278,6 +322,13 @@
 				F1106F151680C968000B3187 /* main.m in Sources */,
 				F1106F191680C968000B3187 /* AppDelegate.m in Sources */,
 				F1106F281680C969000B3187 /* ViewController.m in Sources */,
+				F1106F491681AB7D000B3187 /* ProtocolLocator.m in Sources */,
+				F17814F716823042000DEB80 /* ObjectInstancializationService.m in Sources */,
+				696C1915743C33EEDE899328 /* LabelProvider.m in Sources */,
+				696C10D5FB79DBC295D90AD4 /* ColorProvider.m in Sources */,
+				F1DFEBA8168AFAE8009BB0B4 /* TextProvider.m in Sources */,
+				F1DFEBAD168AFD96009BB0B4 /* FontProvider.m in Sources */,
+				F1DFEBB1168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +337,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1106F3D1680C969000B3187 /* TrainSampleProjectTests.m in Sources */,
+				F1106F4A1681AB7D000B3187 /* ProtocolLocator.m in Sources */,
+				F17814F816823042000DEB80 /* ObjectInstancializationService.m in Sources */,
+				696C1CF9B3B8B1F3201585F9 /* LabelProvider.m in Sources */,
+				696C1EF0D06651F9DBC89BC4 /* ColorProvider.m in Sources */,
+				F1DFEBA9168AFAE8009BB0B4 /* TextProvider.m in Sources */,
+				F1DFEBAE168AFD96009BB0B4 /* FontProvider.m in Sources */,
+				F1DFEBB2168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +432,7 @@
 		F1106F411680C969000B3187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TrainSampleProject/TrainSampleProject-Prefix.pch";
 				INFOPLIST_FILE = "TrainSampleProject/TrainSampleProject-Info.plist";
@@ -385,6 +444,7 @@
 		F1106F421680C969000B3187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TrainSampleProject/TrainSampleProject-Prefix.pch";
 				INFOPLIST_FILE = "TrainSampleProject/TrainSampleProject-Info.plist";
@@ -397,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrainSampleProject.app/TrainSampleProject";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -414,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrainSampleProject.app/TrainSampleProject";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -446,6 +508,7 @@
 				F1106F421680C969000B3187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1106F431680C969000B3187 /* Build configuration list for PBXNativeTarget "TrainSampleProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +517,7 @@
 				F1106F451680C969000B3187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
