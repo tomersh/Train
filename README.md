@@ -4,8 +4,7 @@ Train
 a simple dependency injection framework for objective c, written while traveling in a train!
 
 ## Usage
-1. Add an Ivar to your Class file with the IOC prefix _ioc_ and the service you want to inject:
-2. Use the service in your class.
+Add an Ivar to your Class file with the IOC prefix _ioc_ and the service you want to inject:
 
 ```objectivec
     // .m
@@ -13,6 +12,11 @@ a simple dependency injection framework for objective c, written while traveling
         MyService* _ioc_MyService;
     }
     
+```
+
+Use the service in your class.
+
+```objectivec
     @implementation MyClass
     
     -(NSString*) foo {
@@ -22,7 +26,7 @@ a simple dependency injection framework for objective c, written while traveling
     @end
 ```
 
-3. When an instance of MyClass is needed, initialize it with:
+When an instance of MyClass is needed, initialize it with:
 
 ```objectivec
     MyClass* myClass = [ObjectInstancializationService instantialize:[Myclass class]];
