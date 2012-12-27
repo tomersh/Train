@@ -5,11 +5,9 @@
 //
 
 
-#import "ColorProvider.h"
+#import "FirstColorProvider.h"
 
-
-
-@implementation ColorProvider
+@implementation FirstColorProvider
 
 -(UIColor*) backgroundColor {
     return [UIColor whiteColor];

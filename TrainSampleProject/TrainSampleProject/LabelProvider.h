@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class ColorProvider;
+@class FirstColorProvider;
 
 
 @interface LabelProvider : NSObject

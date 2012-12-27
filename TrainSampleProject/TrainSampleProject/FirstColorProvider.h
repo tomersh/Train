@@ -6,14 +6,8 @@
 
 
 #import <Foundation/Foundation.h>
+#import "ColorProviderProtocol.h"
 
-
-@interface ColorProvider : NSObject
-
--(UIColor*) backgroundColor;
-
--(UIColor*) textColor;
-
--(UIColor*) buttonColor;
+@interface FirstColorProvider : NSObject<ColorProviderProtocol>
 
 @end

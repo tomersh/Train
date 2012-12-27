@@ -6,21 +6,21 @@
 
 
 #import "LabelProvider.h"
-#import "ColorProvider.h"
+#import "ColorProviderProtocol.h"
 #import "TextProvider.h"
 #import "FontProvider.h"
 #import "AutoresizingMaskProvider.h"
 
 @interface LabelProvider () {
-    ColorProvider* _ioc_ColorProvider;
-    TextProvider* _ioc_TextProvider;
+    id<ColorProviderProtocol> _ioc_ColorProvider;
     id<FontProviderProtocol> _ioc_FontProvider;
+    TextProvider* _ioc_TextProvider;
     AutoresizingMaskProvider* _ioc_AutoResizingMaskProvider;
 }
 
-@property (nonatomic, readonly) ColorProvider* colorProvider;
-@property (nonatomic, readonly) TextProvider* textProvider;
+@property (nonatomic, readonly) id<ColorProviderProtocol> colorProvider;
 @property (nonatomic, readonly) id<FontProviderProtocol> fontProvider;
+@property (nonatomic, readonly) TextProvider* textProvider;
 @property (nonatomic, readonly) AutoresizingMaskProvider* autoResizingMaskProvider;
 
 @end
