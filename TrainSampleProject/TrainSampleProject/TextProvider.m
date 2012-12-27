@@ -11,7 +11,7 @@
 @implementation TextProvider
 
 -(NSString*) buttonText {
-    return @"Nofari!";
+    return @"It works!";
 }
 
 @end

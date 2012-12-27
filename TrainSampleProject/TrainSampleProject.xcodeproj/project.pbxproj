@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		696C10D5FB79DBC295D90AD4 /* ColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* ColorProvider.m */; };
+		696C10D5FB79DBC295D90AD4 /* FirstColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* FirstColorProvider.m */; };
 		696C1915743C33EEDE899328 /* LabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C146487B674C0C027BE10 /* LabelProvider.m */; };
 		696C1CF9B3B8B1F3201585F9 /* LabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C146487B674C0C027BE10 /* LabelProvider.m */; };
-		696C1EF0D06651F9DBC89BC4 /* ColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* ColorProvider.m */; };
+		696C1EF0D06651F9DBC89BC4 /* FirstColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C1BF1453292D6AA60638F /* FirstColorProvider.m */; };
 		F1106F091680C968000B3187 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F081680C968000B3187 /* UIKit.framework */; };
 		F1106F0B1680C968000B3187 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0A1680C968000B3187 /* Foundation.framework */; };
 		F1106F0D1680C968000B3187 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0C1680C968000B3187 /* CoreGraphics.framework */; };
@@ -36,6 +36,23 @@
 		F1DFEBAE168AFD96009BB0B4 /* FontProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */; };
 		F1DFEBB1168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */; };
 		F1DFEBB2168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */; };
+		F1DFECEB168CB5F1009BB0B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F141680C968000B3187 /* main.m */; };
+		F1DFECEC168CB5F1009BB0B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F181680C968000B3187 /* AppDelegate.m */; };
+		F1DFECED168CB5F1009BB0B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F271680C969000B3187 /* ViewController.m */; };
+		F1DFECEE168CB5F1009BB0B4 /* ProtocolLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F481681AB7D000B3187 /* ProtocolLocator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F1DFECEF168CB5F1009BB0B4 /* ObjectInstancializationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F17814F616823042000DEB80 /* ObjectInstancializationService.m */; };
+		F1DFECF0168CB5F1009BB0B4 /* LabelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 696C146487B674C0C027BE10 /* LabelProvider.m */; };
+		F1DFECF2168CB5F1009BB0B4 /* TextProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */; };
+		F1DFECF3168CB5F1009BB0B4 /* FontProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */; };
+		F1DFECF4168CB5F1009BB0B4 /* AutoresizingMaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */; };
+		F1DFECF6168CB5F1009BB0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F081680C968000B3187 /* UIKit.framework */; };
+		F1DFECF7168CB5F1009BB0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0A1680C968000B3187 /* Foundation.framework */; };
+		F1DFECF8168CB5F1009BB0B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1106F0C1680C968000B3187 /* CoreGraphics.framework */; };
+		F1DFECFA168CB5F1009BB0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1106F111680C968000B3187 /* InfoPlist.strings */; };
+		F1DFECFB168CB5F1009BB0B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106F1A1680C968000B3187 /* Default.png */; };
+		F1DFECFC168CB5F1009BB0B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106F1C1680C968000B3187 /* Default@2x.png */; };
+		F1DFECFD168CB5F1009BB0B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1106F1E1680C968000B3187 /* Default-568h@2x.png */; };
+		F1DFED06168CB62B009BB0B4 /* SecondColorProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFED05168CB62B009BB0B4 /* SecondColorProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +67,8 @@
 
 /* Begin PBXFileReference section */
 		696C146487B674C0C027BE10 /* LabelProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelProvider.m; sourceTree = "<group>"; };
-		696C1B217BA56A6B79DBAD53 /* ColorProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorProvider.h; sourceTree = "<group>"; };
-		696C1BF1453292D6AA60638F /* ColorProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorProvider.m; sourceTree = "<group>"; };
+		696C1B217BA56A6B79DBAD53 /* FirstColorProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstColorProvider.h; sourceTree = "<group>"; };
+		696C1BF1453292D6AA60638F /* FirstColorProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstColorProvider.m; sourceTree = "<group>"; };
 		696C1DAC52EE4509886FA46C /* LabelProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelProvider.h; sourceTree = "<group>"; };
 		F1106F041680C968000B3187 /* TrainSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1106F081680C968000B3187 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +102,11 @@
 		F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontProvider.m; sourceTree = "<group>"; };
 		F1DFEBAF168AFF14009BB0B4 /* AutoresizingMaskProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoresizingMaskProvider.h; sourceTree = "<group>"; };
 		F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoresizingMaskProvider.m; sourceTree = "<group>"; };
+		F1DFECAA168CB319009BB0B4 /* ColorProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorProviderProtocol.h; sourceTree = "<group>"; };
+		F1DFED01168CB5F1009BB0B4 /* TrainSampleProject copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TrainSampleProject copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1DFED03168CB5F1009BB0B4 /* TrainSampleProject copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TrainSampleProject copy-Info.plist"; path = "/Users/tomer/dev/train/TrainSampleProject/TrainSampleProject copy-Info.plist"; sourceTree = "<absolute>"; };
+		F1DFED04168CB62B009BB0B4 /* SecondColorProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondColorProvider.h; sourceTree = "<group>"; };
+		F1DFED05168CB62B009BB0B4 /* SecondColorProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondColorProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +130,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1DFECF5168CB5F1009BB0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1DFECF6168CB5F1009BB0B4 /* UIKit.framework in Frameworks */,
+				F1DFECF7168CB5F1009BB0B4 /* Foundation.framework in Frameworks */,
+				F1DFECF8168CB5F1009BB0B4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,6 +151,7 @@
 				F1106F351680C969000B3187 /* TrainSampleProjectTests */,
 				F1106F071680C968000B3187 /* Frameworks */,
 				F1106F051680C968000B3187 /* Products */,
+				F1DFED03168CB5F1009BB0B4 /* TrainSampleProject copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +160,7 @@
 			children = (
 				F1106F041680C968000B3187 /* TrainSampleProject.app */,
 				F1106F2E1680C969000B3187 /* TrainSampleProjectTests.octest */,
+				F1DFED01168CB5F1009BB0B4 /* TrainSampleProject copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,14 +186,17 @@
 				F1106F0F1680C968000B3187 /* Supporting Files */,
 				696C146487B674C0C027BE10 /* LabelProvider.m */,
 				696C1DAC52EE4509886FA46C /* LabelProvider.h */,
-				696C1BF1453292D6AA60638F /* ColorProvider.m */,
-				696C1B217BA56A6B79DBAD53 /* ColorProvider.h */,
+				696C1BF1453292D6AA60638F /* FirstColorProvider.m */,
+				696C1B217BA56A6B79DBAD53 /* FirstColorProvider.h */,
 				F1DFEBA6168AFAE8009BB0B4 /* TextProvider.h */,
 				F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */,
 				F1DFEBAB168AFD96009BB0B4 /* FontProvider.h */,
 				F1DFEBAC168AFD96009BB0B4 /* FontProvider.m */,
 				F1DFEBAF168AFF14009BB0B4 /* AutoresizingMaskProvider.h */,
 				F1DFEBB0168AFF14009BB0B4 /* AutoresizingMaskProvider.m */,
+				F1DFECAA168CB319009BB0B4 /* ColorProviderProtocol.h */,
+				F1DFED04168CB62B009BB0B4 /* SecondColorProvider.h */,
+				F1DFED05168CB62B009BB0B4 /* SecondColorProvider.m */,
 			);
 			path = TrainSampleProject;
 			sourceTree = "<group>";
@@ -249,6 +286,23 @@
 			productReference = F1106F2E1680C969000B3187 /* TrainSampleProjectTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		F1DFECE9168CB5F1009BB0B4 /* TrainSampleProjectRed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1DFECFE168CB5F1009BB0B4 /* Build configuration list for PBXNativeTarget "TrainSampleProjectRed" */;
+			buildPhases = (
+				F1DFECEA168CB5F1009BB0B4 /* Sources */,
+				F1DFECF5168CB5F1009BB0B4 /* Frameworks */,
+				F1DFECF9168CB5F1009BB0B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrainSampleProjectRed;
+			productName = TrainSampleProject;
+			productReference = F1DFED01168CB5F1009BB0B4 /* TrainSampleProject copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -272,6 +326,7 @@
 			targets = (
 				F1106F031680C968000B3187 /* TrainSampleProject */,
 				F1106F2D1680C969000B3187 /* TrainSampleProjectTests */,
+				F1DFECE9168CB5F1009BB0B4 /* TrainSampleProjectRed */,
 			);
 		};
 /* End PBXProject section */
@@ -293,6 +348,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1106F3A1680C969000B3187 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1DFECF9168CB5F1009BB0B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1DFECFA168CB5F1009BB0B4 /* InfoPlist.strings in Resources */,
+				F1DFECFB168CB5F1009BB0B4 /* Default.png in Resources */,
+				F1DFECFC168CB5F1009BB0B4 /* Default@2x.png in Resources */,
+				F1DFECFD168CB5F1009BB0B4 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +391,7 @@
 				F1106F491681AB7D000B3187 /* ProtocolLocator.m in Sources */,
 				F17814F716823042000DEB80 /* ObjectInstancializationService.m in Sources */,
 				696C1915743C33EEDE899328 /* LabelProvider.m in Sources */,
-				696C10D5FB79DBC295D90AD4 /* ColorProvider.m in Sources */,
+				696C10D5FB79DBC295D90AD4 /* FirstColorProvider.m in Sources */,
 				F1DFEBA8168AFAE8009BB0B4 /* TextProvider.m in Sources */,
 				F1DFEBAD168AFD96009BB0B4 /* FontProvider.m in Sources */,
 				F1DFEBB1168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */,
@@ -340,10 +406,27 @@
 				F1106F4A1681AB7D000B3187 /* ProtocolLocator.m in Sources */,
 				F17814F816823042000DEB80 /* ObjectInstancializationService.m in Sources */,
 				696C1CF9B3B8B1F3201585F9 /* LabelProvider.m in Sources */,
-				696C1EF0D06651F9DBC89BC4 /* ColorProvider.m in Sources */,
+				696C1EF0D06651F9DBC89BC4 /* FirstColorProvider.m in Sources */,
 				F1DFEBA9168AFAE8009BB0B4 /* TextProvider.m in Sources */,
 				F1DFEBAE168AFD96009BB0B4 /* FontProvider.m in Sources */,
 				F1DFEBB2168AFF14009BB0B4 /* AutoresizingMaskProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1DFECEA168CB5F1009BB0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1DFECEB168CB5F1009BB0B4 /* main.m in Sources */,
+				F1DFECEC168CB5F1009BB0B4 /* AppDelegate.m in Sources */,
+				F1DFECED168CB5F1009BB0B4 /* ViewController.m in Sources */,
+				F1DFECEE168CB5F1009BB0B4 /* ProtocolLocator.m in Sources */,
+				F1DFECEF168CB5F1009BB0B4 /* ObjectInstancializationService.m in Sources */,
+				F1DFECF0168CB5F1009BB0B4 /* LabelProvider.m in Sources */,
+				F1DFECF2168CB5F1009BB0B4 /* TextProvider.m in Sources */,
+				F1DFECF3168CB5F1009BB0B4 /* FontProvider.m in Sources */,
+				F1DFECF4168CB5F1009BB0B4 /* AutoresizingMaskProvider.m in Sources */,
+				F1DFED06168CB62B009BB0B4 /* SecondColorProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +572,30 @@
 			};
 			name = Release;
 		};
+		F1DFECFF168CB5F1009BB0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrainSampleProject/TrainSampleProject-Prefix.pch";
+				INFOPLIST_FILE = "TrainSampleProject copy-Info.plist";
+				PRODUCT_NAME = "TrainSampleProject copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F1DFED00168CB5F1009BB0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrainSampleProject/TrainSampleProject-Prefix.pch";
+				INFOPLIST_FILE = "TrainSampleProject copy-Info.plist";
+				PRODUCT_NAME = "TrainSampleProject copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -515,6 +622,15 @@
 			buildConfigurations = (
 				F1106F441680C969000B3187 /* Debug */,
 				F1106F451680C969000B3187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1DFECFE168CB5F1009BB0B4 /* Build configuration list for PBXNativeTarget "TrainSampleProjectRed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1DFECFF168CB5F1009BB0B4 /* Debug */,
+				F1DFED00168CB5F1009BB0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

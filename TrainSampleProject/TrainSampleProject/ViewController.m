@@ -8,16 +8,16 @@
 
 #import "ViewController.h"
 #import "LabelProvider.h"
-#import "FirstColorProvider.h"
+#import "ColorProviderProtocol.h"
 
 @interface ViewController () {
 
     LabelProvider* _ioc_LabelProvider;
-    FirstColorProvider* _ioc_ColorProvider;
+    id<ColorProviderProtocol> _ioc_ColorProvider;
 }
 
 @property (nonatomic, readonly) LabelProvider* labelProvider;
-@property (nonatomic, readonly) FirstColorProvider* colorProvider;
+@property (nonatomic, readonly) id<ColorProviderProtocol> colorProvider;
 
 @end
 
