@@ -8,40 +8,87 @@
 
 #import "ObjectInstancializationService.h"
 #import "IOCDefines.h"
+#import "ProtocolLocator.h"
 
 #import <objc/runtime.h>
 
 @implementation ObjectInstancializationService
 
 
-+(NSString*) getPropertyName:(Ivar) property {
-    return [NSString stringWithUTF8String:ivar_getName(property)];
++(NSString*) getIvarName:(Ivar) iVar {
+    return [NSString stringWithUTF8String:ivar_getName(iVar)];
 }
 
-+(BOOL) isIOCProperty:(Ivar) property {
-    NSString* propertyName = [ObjectInstancializationService getPropertyName:property];
-    return [propertyName hasPrefix:STABABLE_PROPERTY_PREFIX];
++(BOOL) isIOCIvar:(Ivar) iVar {
+    NSString* ivarName = [ObjectInstancializationService getIvarName:iVar];
+    return [ivarName hasPrefix:STABABLE_PROPERTY_PREFIX];
 }
 
-+(void) setValueForProperty:(Ivar) property inObjectInstance:(id) instance {
++(BOOL) isProtocol:(NSString*) iVarType {
+    return iVarType && [iVarType hasPrefix:@"<"] && [iVarType hasSuffix:@">"];
+}
 
-    NSString* propertyType = [NSString stringWithUTF8String:ivar_getTypeEncoding(property)];
-    NSString* propertyName = [ObjectInstancializationService getPropertyName:property];
++(NSString*) protocolNameFromType:(NSString*) iVarType {
+    //<xxx>
+    return [[iVarType substringFromIndex:1] substringToIndex:[iVarType length] - 2];
+}
 
-    NSString* className = [propertyName substringFromIndex:[STABABLE_PROPERTY_PREFIX length]];
++(NSString*) classNameFromType:(NSString*) iVarType {
+    //@"xxx"
+    return [[iVarType substringFromIndex:2] substringToIndex:[iVarType length] - 3];
+}
+
+
++(void) setValueForIvar:(Ivar)ivar inObjectInstance:(id) instance {
+
+    NSString* ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
+
+    id ivarValue;
     
-    id propertyValue = [ObjectInstancializationService instantialize:NSClassFromString(className)];
+    NSString* className = [ObjectInstancializationService classNameFromType:ivarType];
+    
+    if ([ObjectInstancializationService isProtocol:className]) {
+        NSString* protocolName = [ObjectInstancializationService protocolNameFromType:className];
+        ivarValue = [ObjectInstancializationService instantializeWithProtocol:NSProtocolFromString(protocolName)];
+    }
+    else {
+        ivarValue = [ObjectInstancializationService instantialize:NSClassFromString(className)];
+    }
 
-    if (propertyValue == nil) {
-        if ([propertyType length] > 2) {
-            propertyValue = nil;
+    if (ivarValue == nil) {
+        if ([ivarType length] > 2) {
+            ivarValue = nil;
         }
         else {
-            propertyValue = [NSNumber numberWithFloat:0.0];
+            ivarValue = [NSNumber numberWithFloat:0.0];
         }
     }
     
-    [instance setValue:propertyValue forKey:propertyName];
+    NSString* ivarName = [ObjectInstancializationService getIvarName:ivar];
+    [instance setValue:ivarValue forKey:ivarName];
+}
+
++(NSArray*) instantializeAllWithProtocol:(Protocol*) protocol {
+    NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
+    if (!classesForProtocol) return nil;
+    NSMutableArray* instances = [[NSMutableArray alloc] initWithCapacity:[classesForProtocol count]];
+    for (int i = 0; i < [classesForProtocol count]; ++i) {
+        Class clazz = [classesForProtocol objectAtIndex:(NSUInteger) i];
+        id instance = [ObjectInstancializationService instantialize:clazz];
+        
+        if (!instance) continue;
+        
+        [instances addObject:instance];
+    }
+    return [instances autorelease];
+}
+
++(id) instantializeWithProtocol:(Protocol*) protocol {
+    NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
+    if (!classesForProtocol) return nil;
+    Class clazz = [classesForProtocol objectAtIndex:0];
+    id instance = [[ObjectInstancializationService instantialize:clazz] retain];
+    return [instance autorelease];
 }
 
 +(id) instantialize:(Class) clazz {
@@ -50,11 +97,11 @@
     unsigned int numberOfProperties = 0;
     Ivar* properties = class_copyIvarList(clazz, &numberOfProperties);
     for (int i = 0; i < numberOfProperties; ++i) {
-        Ivar property = properties[i];
+        Ivar ivar = properties[i];
 
-        if (![ObjectInstancializationService isIOCProperty:property]) continue;
+        if (![ObjectInstancializationService isIOCIvar:ivar]) continue;
 
-        [ObjectInstancializationService setValueForProperty:property inObjectInstance:classInstance];
+        [ObjectInstancializationService setValueForIvar:ivar inObjectInstance:classInstance];
     }
     return classInstance;
 }

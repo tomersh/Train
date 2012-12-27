@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FontProvider : NSObject
+@protocol FontProviderProtocol
 
 -(UIFont*) buttonFont;
+
+@end
+
+@interface FontProvider : NSObject<FontProviderProtocol>
 
 @end

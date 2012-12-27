@@ -13,4 +13,6 @@
 
 +(id) instantialize:(Class) clazz;
 
++(id) instantializeWithProtocol:(Protocol*) protocol;
++(NSArray*) instantializeAllWithProtocol:(Protocol*) protocol;
 @end

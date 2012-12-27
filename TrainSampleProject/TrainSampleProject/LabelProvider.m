@@ -14,13 +14,13 @@
 @interface LabelProvider () {
     ColorProvider* _ioc_ColorProvider;
     TextProvider* _ioc_TextProvider;
-    FontProvider* _ioc_FontProvider;
+    id<FontProviderProtocol> _ioc_FontProvider;
     AutoresizingMaskProvider* _ioc_AutoResizingMaskProvider;
 }
 
 @property (nonatomic, readonly) ColorProvider* colorProvider;
 @property (nonatomic, readonly) TextProvider* textProvider;
-@property (nonatomic, readonly) FontProvider* fontProvider;
+@property (nonatomic, readonly) id<FontProviderProtocol> fontProvider;
 @property (nonatomic, readonly) AutoresizingMaskProvider* autoResizingMaskProvider;
 
 @end
