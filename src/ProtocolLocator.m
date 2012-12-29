@@ -27,8 +27,9 @@ static int allClassCount;
 +(NSArray *) getAllClassesByProtocolType:(Protocol*) protocol {
     NSMutableArray *result = [NSMutableArray array];
     for (NSInteger i = 0; i < allClassCount; i++) {
-        if (class_conformsToProtocol(allClassesMemoization[i],protocol))
-            [result addObject:allClassesMemoization[i]];
+        Class clazz = allClassesMemoization[i];
+        if (class_conformsToProtocol(clazz,protocol))
+            [result addObject:clazz];
     }
     return result;
 }

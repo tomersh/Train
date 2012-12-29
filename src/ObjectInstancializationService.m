@@ -24,6 +24,10 @@
     return [ivarName hasPrefix:STABABLE_PROPERTY_PREFIX];
 }
 
++(BOOL) isArray:(NSString*) iVarType {
+    return iVarType && [iVarType isEqualToString:@"NSArray"];
+}
+
 +(BOOL) isProtocol:(NSString*) iVarType {
     return iVarType && [iVarType hasPrefix:@"<"] && [iVarType hasSuffix:@">"];
 }
@@ -38,33 +42,36 @@
     return [[iVarType substringFromIndex:2] substringToIndex:[iVarType length] - 3];
 }
 
++(id) iVarDefaultValueForType:(NSString*) iVarType {
+    if ([iVarType length] > 2) {
+        return nil;
+    }
+    return [NSNumber numberWithFloat:0.0];
+}
 
 +(void) setValueForIvar:(Ivar)ivar inObjectInstance:(id) instance {
 
     NSString* ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
-
-    id ivarValue;
-    
     NSString* className = [ObjectInstancializationService classNameFromType:ivarType];
+    NSString* ivarName = [ObjectInstancializationService getIvarName:ivar];
+    
+    id ivarValue;
     
     if ([ObjectInstancializationService isProtocol:className]) {
         NSString* protocolName = [ObjectInstancializationService protocolNameFromType:className];
         ivarValue = [ObjectInstancializationService instantializeWithProtocol:NSProtocolFromString(protocolName)];
+    }
+    else if ([ObjectInstancializationService isArray:className]) {
+        NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[STABABLE_PROPERTY_PREFIX length]];
+        ivarValue = [ObjectInstancializationService instantializeAllWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
     }
     else {
         ivarValue = [ObjectInstancializationService instantialize:NSClassFromString(className)];
     }
 
     if (ivarValue == nil) {
-        if ([ivarType length] > 2) {
-            ivarValue = nil;
-        }
-        else {
-            ivarValue = [NSNumber numberWithFloat:0.0];
-        }
+        ivarValue = [ObjectInstancializationService iVarDefaultValueForType:ivarType];
     }
-    
-    NSString* ivarName = [ObjectInstancializationService getIvarName:ivar];
     [instance setValue:ivarValue forKey:ivarName];
 }
 
@@ -72,8 +79,8 @@
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
     if (!classesForProtocol) return nil;
     NSMutableArray* instances = [[NSMutableArray alloc] initWithCapacity:[classesForProtocol count]];
-    for (int i = 0; i < [classesForProtocol count]; ++i) {
-        Class clazz = [classesForProtocol objectAtIndex:(NSUInteger) i];
+    
+    for (Class clazz in classesForProtocol) {
         id instance = [ObjectInstancializationService instantialize:clazz];
         
         if (!instance) continue;
@@ -94,10 +101,10 @@
 +(id) instantialize:(Class) clazz {
     id classInstance = [[clazz alloc] init];
     if (!classInstance) return classInstance;
-    unsigned int numberOfProperties = 0;
-    Ivar* properties = class_copyIvarList(clazz, &numberOfProperties);
-    for (int i = 0; i < numberOfProperties; ++i) {
-        Ivar ivar = properties[i];
+    unsigned int numberOfIvars = 0;
+    Ivar* iVars = class_copyIvarList(clazz, &numberOfIvars);
+    for (int i = 0; i < numberOfIvars; ++i) {
+        Ivar ivar = iVars[i];
 
         if (![ObjectInstancializationService isIOCIvar:ivar]) continue;
 
