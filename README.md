@@ -8,31 +8,31 @@ Add an Ivar to your Class file with the IOC prefix and the service you want to i
 There are three injection flavours:
 
 ```objectivec
-    // .m
-    @interface MyClass () {
-        MyService* _ioc_MyService; //will create an instance of MyService.
-        id<MyServiceProtocol> _ioc_MyServiceProtocol //will create an instance of the first class conforming to the protocol.
-        NSArray* _ioc_MyServiceProtocol //will return an array containing instances of all classes conforming to MyServiceProtocol.
-    }
+// .m
+@interface MyClass () {
+    MyService* _ioc_MyService; //will create an instance of MyService.
+    id<MyProtocol> _ioc_MyProtocol //will create an instance of the first class conforming to MyProtocol.
+    NSArray* _ioc_MyProtocol //will return an array containing instances of all classes conforming to MyProtocol
+}
     
 ```
 
 Use the service in your class.
 
 ```objectivec
-    @implementation MyClass
-    
-    -(NSString*) foo {
-        return [_ioc_MyService goo];
-    }
-    
-    @end
+@implementation MyClass
+
+-(NSString*) foo {
+    return [_ioc_MyService goo];
+}
+
+@end
 ```
 
 When an instance of MyClass is needed, initialize it with:
 
 ```objectivec
-    MyClass* myClass = [ObjectInstancializationService instantialize:[Myclass class]];
+MyClass* myClass = [ObjectInstancializationService instantialize:[Myclass class]];
 ```
 
 ### It is recursive!
