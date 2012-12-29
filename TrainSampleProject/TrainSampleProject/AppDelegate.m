@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 
-#import "ObjectInstancializationService.h"
+#import "TrainInjector.h"
 
 @interface AppDelegate () {
     UIWindow* _window;
@@ -28,7 +28,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     //This is the place where magic happens!
-    ViewController* viewController = [ObjectInstancializationService instantialize:[ViewController class]];
+    ViewController* viewController = [TrainInjector getObject:[ViewController class]];
 
 
     self.window.rootViewController = viewController;

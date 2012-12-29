@@ -25,13 +25,13 @@ static int allClassCount;
 }
 
 +(NSArray *) getAllClassesByProtocolType:(Protocol*) protocol {
-    NSMutableArray *result = [NSMutableArray array];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < allClassCount; i++) {
         Class clazz = allClassesMemoization[i];
         if (class_conformsToProtocol(clazz,protocol))
             [result addObject:clazz];
     }
-    return result;
+    return [result autorelease];
 }
 
 @end

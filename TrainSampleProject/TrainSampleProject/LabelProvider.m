@@ -16,6 +16,7 @@
     id<FontProviderProtocol> _ioc_FontProvider;
     TextProvider* _ioc_TextProvider;
     AutoresizingMaskProvider* _ioc_AutoResizingMaskProvider;
+    NSArray* _ioc_ColorProviderProtocol;
 }
 
 @property (nonatomic, readonly) id<ColorProviderProtocol> colorProvider;

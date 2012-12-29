@@ -29,7 +29,7 @@ Use the service in your class.
 When an instance of MyClass is needed, initialize it with:
 
 ```objectivec
-    MyClass* myClass = [ObjectInstancializationService instantialize:[Myclass class]];
+    MyClass* myClass = [TrainInjector getObject:[Myclass class]];
 ```
 
 ### It is recursive!

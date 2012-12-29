@@ -12,7 +12,7 @@
 
 #import <objc/runtime.h>
 
-@implementation ObjectInstancializationService
+@implementation TrainInjector
 
 
 +(NSString*) getIvarName:(Ivar) iVar {
@@ -59,14 +59,14 @@
     
     if ([ObjectInstancializationService isProtocol:className]) {
         NSString* protocolName = [ObjectInstancializationService protocolNameFromType:className];
-        ivarValue = [ObjectInstancializationService instantializeWithProtocol:NSProtocolFromString(protocolName)];
+        ivarValue = [ObjectInstancializationService getObjectWithProtocol:NSProtocolFromString(protocolName)];
     }
     else if ([ObjectInstancializationService isArray:className]) {
         NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[STABABLE_PROPERTY_PREFIX length]];
-        ivarValue = [ObjectInstancializationService instantializeAllWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
+        ivarValue = [ObjectInstancializationService getAllObjectsWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
     }
     else {
-        ivarValue = [ObjectInstancializationService instantialize:NSClassFromString(className)];
+        ivarValue = [ObjectInstancializationService getObject:NSClassFromString(className)];
     }
 
     if (ivarValue == nil) {
@@ -75,13 +75,13 @@
     [instance setValue:ivarValue forKey:ivarName];
 }
 
-+(NSArray*) instantializeAllWithProtocol:(Protocol*) protocol {
++(NSArray*)getAllObjectsWithProtocol:(Protocol*) protocol {
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
     if (!classesForProtocol) return nil;
     NSMutableArray* instances = [[NSMutableArray alloc] initWithCapacity:[classesForProtocol count]];
     
     for (Class clazz in classesForProtocol) {
-        id instance = [ObjectInstancializationService instantialize:clazz];
+        id instance = [ObjectInstancializationService getObject:clazz];
         
         if (!instance) continue;
         
@@ -90,15 +90,15 @@
     return [instances autorelease];
 }
 
-+(id) instantializeWithProtocol:(Protocol*) protocol {
++(id)getObjectWithProtocol:(Protocol*) protocol {
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
     if (!classesForProtocol) return nil;
     Class clazz = [classesForProtocol objectAtIndex:0];
-    id instance = [[ObjectInstancializationService instantialize:clazz] retain];
+    id instance = [[ObjectInstancializationService getObject:clazz] retain];
     return [instance autorelease];
 }
 
-+(id) instantialize:(Class) clazz {
++(id)getObject:(Class) clazz {
     id classInstance = [[clazz alloc] init];
     if (!classInstance) return classInstance;
     unsigned int numberOfIvars = 0;
