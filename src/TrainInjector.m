@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Tomer Shiri. All rights reserved.
 //
 
-#import "ObjectInstancializationService.h"
+#import "TrainInjector.h"
 #import "IOCDefines.h"
 #import "ProtocolLocator.h"
 
@@ -20,7 +20,7 @@
 }
 
 +(BOOL) isIOCIvar:(Ivar) iVar {
-    NSString* ivarName = [ObjectInstancializationService getIvarName:iVar];
+    NSString* ivarName = [TrainInjector getIvarName:iVar];
     return [ivarName hasPrefix:STABABLE_PROPERTY_PREFIX];
 }
 
@@ -52,25 +52,25 @@
 +(void) setValueForIvar:(Ivar)ivar inObjectInstance:(id) instance {
 
     NSString* ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
-    NSString* className = [ObjectInstancializationService classNameFromType:ivarType];
-    NSString* ivarName = [ObjectInstancializationService getIvarName:ivar];
+    NSString* className = [TrainInjector classNameFromType:ivarType];
+    NSString* ivarName = [TrainInjector getIvarName:ivar];
     
     id ivarValue;
     
-    if ([ObjectInstancializationService isProtocol:className]) {
-        NSString* protocolName = [ObjectInstancializationService protocolNameFromType:className];
-        ivarValue = [ObjectInstancializationService getObjectWithProtocol:NSProtocolFromString(protocolName)];
+    if ([TrainInjector isProtocol:className]) {
+        NSString* protocolName = [TrainInjector protocolNameFromType:className];
+        ivarValue = [TrainInjector getObjectWithProtocol:NSProtocolFromString(protocolName)];
     }
-    else if ([ObjectInstancializationService isArray:className]) {
+    else if ([TrainInjector isArray:className]) {
         NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[STABABLE_PROPERTY_PREFIX length]];
-        ivarValue = [ObjectInstancializationService getAllObjectsWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
+        ivarValue = [TrainInjector getAllObjectsWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
     }
     else {
-        ivarValue = [ObjectInstancializationService getObject:NSClassFromString(className)];
+        ivarValue = [TrainInjector getObject:NSClassFromString(className)];
     }
 
     if (ivarValue == nil) {
-        ivarValue = [ObjectInstancializationService iVarDefaultValueForType:ivarType];
+        ivarValue = [TrainInjector iVarDefaultValueForType:ivarType];
     }
     [instance setValue:ivarValue forKey:ivarName];
 }
@@ -81,7 +81,7 @@
     NSMutableArray* instances = [[NSMutableArray alloc] initWithCapacity:[classesForProtocol count]];
     
     for (Class clazz in classesForProtocol) {
-        id instance = [ObjectInstancializationService getObject:clazz];
+        id instance = [TrainInjector getObject:clazz];
         
         if (!instance) continue;
         
@@ -94,7 +94,7 @@
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
     if (!classesForProtocol) return nil;
     Class clazz = [classesForProtocol objectAtIndex:0];
-    id instance = [[ObjectInstancializationService getObject:clazz] retain];
+    id instance = [[TrainInjector getObject:clazz] retain];
     return [instance autorelease];
 }
 
@@ -106,9 +106,9 @@
     for (int i = 0; i < numberOfIvars; ++i) {
         Ivar ivar = iVars[i];
 
-        if (![ObjectInstancializationService isIOCIvar:ivar]) continue;
+        if (![TrainInjector isIOCIvar:ivar]) continue;
 
-        [ObjectInstancializationService setValueForIvar:ivar inObjectInstance:classInstance];
+        [TrainInjector setValueForIvar:ivar inObjectInstance:classInstance];
     }
     return classInstance;
 }
