@@ -4,26 +4,29 @@ Train
 a simple dependency injection framework for objective c, written while traveling in a train!
 
 ## Usage
-Add an Ivar to your Class file with the IOC prefix and the service you want to inject:
+Add an Ivar to your Class file with the IOC prefix and the service you want to inject.
+There are three injection flavours:
 
 ```objectivec
-    // .m
-    @interface MyClass () {
-        MyService* _ioc_MyService;
-    }
+// .m
+@interface MyClass () {
+    MyService* _ioc_MyService; //will create an instance of MyService.
+    id<MyProtocol> _ioc_MyProtocol //will create an instance of the first class conforming to MyProtocol.
+    NSArray* _ioc_MyProtocol //will return an array containing instances of all classes conforming to MyProtocol
+}
     
 ```
 
 Use the service in your class.
 
 ```objectivec
-    @implementation MyClass
-    
-    -(NSString*) foo {
-        return [_ioc_MyService goo];
-    }
-    
-    @end
+@implementation MyClass
+
+-(NSString*) foo {
+    return [_ioc_MyService goo];
+}
+
+@end
 ```
 
 When an instance of MyClass is needed, initialize it with:
