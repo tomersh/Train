@@ -1,1 +1,1 @@
-#define STABABLE_PROPERTY_PREFIX @"_ioc_"
+#define IOC_IVAR_PREFIX @"_ioc_"

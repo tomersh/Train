@@ -14,14 +14,13 @@
 
 @implementation TrainInjector
 
-
 +(NSString*) getIvarName:(Ivar) iVar {
     return [NSString stringWithUTF8String:ivar_getName(iVar)];
 }
 
 +(BOOL) isIOCIvar:(Ivar) iVar {
     NSString* ivarName = [TrainInjector getIvarName:iVar];
-    return [ivarName hasPrefix:STABABLE_PROPERTY_PREFIX];
+    return [ivarName hasPrefix:IOC_IVAR_PREFIX];
 }
 
 +(BOOL) isArray:(NSString*) iVarType {
@@ -62,7 +61,7 @@
         ivarValue = [TrainInjector getObjectWithProtocol:NSProtocolFromString(protocolName)];
     }
     else if ([TrainInjector isArray:className]) {
-        NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[STABABLE_PROPERTY_PREFIX length]];
+        NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[IOC_IVAR_PREFIX length]];
         ivarValue = [TrainInjector getAllObjectsWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
     }
     else {

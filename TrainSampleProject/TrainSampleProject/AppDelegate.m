@@ -28,7 +28,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
     //This is the place where magic happens!
-    ViewController* viewController = injectClass([ViewController class]);
+    ViewController* viewController = injectClass(ViewController);
 
     self.window.rootViewController = viewController;
 

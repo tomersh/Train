@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#define injectClass(clazz) ([TrainInjector getObject:clazz])
+#define injectClass(className) ([TrainInjector getObject:[className class]])
 #define injectProtocol(protocol) ([TrainInjector getObjectWithProtocol:protocol])
 #define injectProtocols(protocol) ([TrainInjector getAllObjectsWithProtocol:protocol])
 
 @interface TrainInjector : NSObject
-
 
 +(id)getObject:(Class) clazz;
 
