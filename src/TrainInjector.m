@@ -7,12 +7,29 @@
 //
 
 #import "TrainInjector.h"
-#import "IOCDefines.h"
 #import "ProtocolLocator.h"
 
 #import <objc/runtime.h>
 
 @implementation TrainInjector
+
+static NSString* _iocPrefix;
+
+
+-(id) init {
+    return nil;
+}
+
++(void) initialize {
+    [TrainInjector setIocPrefix:@"_ioc_"];
+}
+
++(void) setIocPrefix:(NSString*) iocPrefix {
+    if (!iocPrefix || [iocPrefix isEqualToString:@""]) return;
+    [_iocPrefix release];
+    _iocPrefix = nil;
+    _iocPrefix = [iocPrefix retain];
+}
 
 +(NSString*) getIvarName:(Ivar) iVar {
     return [NSString stringWithUTF8String:ivar_getName(iVar)];
@@ -20,7 +37,7 @@
 
 +(BOOL) isIOCIvar:(Ivar) iVar {
     NSString* ivarName = [TrainInjector getIvarName:iVar];
-    return [ivarName hasPrefix:IOC_IVAR_PREFIX];
+    return [ivarName hasPrefix:_iocPrefix];
 }
 
 +(BOOL) isArray:(NSString*) iVarType {
@@ -41,18 +58,22 @@
     return [[iVarType substringFromIndex:2] substringToIndex:[iVarType length] - 3];
 }
 
-+(id) iVarDefaultValueForType:(NSString*) iVarType {
-    if ([iVarType length] > 2) {
-        return nil;
-    }
-    return [NSNumber numberWithFloat:0.0];
++(BOOL) isObject:(NSString*) ivarTypeAsString {
+    return ivarTypeAsString && [ivarTypeAsString length] > 2;
 }
 
 +(void) setValueForIvar:(Ivar)ivar inObjectInstance:(id) instance {
 
     NSString* ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
-    NSString* className = [TrainInjector classNameFromType:ivarType];
+    
     NSString* ivarName = [TrainInjector getIvarName:ivar];
+    
+    if (![TrainInjector isObject:ivarType]) {
+        [instance setValue:[NSNumber numberWithFloat:0.0] forKey:ivarName];
+        return;
+    }
+    
+    NSString* className = [TrainInjector classNameFromType:ivarType];
     
     id ivarValue;
     
@@ -61,22 +82,19 @@
         ivarValue = [TrainInjector getObjectWithProtocol:NSProtocolFromString(protocolName)];
     }
     else if ([TrainInjector isArray:className]) {
-        NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[IOC_IVAR_PREFIX length]];
+        NSString* protocolNameFromIvarName = [ivarName substringFromIndex:[_iocPrefix length]];
         ivarValue = [TrainInjector getAllObjectsWithProtocol:NSProtocolFromString(protocolNameFromIvarName)];
     }
     else {
         ivarValue = [TrainInjector getObject:NSClassFromString(className)];
     }
 
-    if (ivarValue == nil) {
-        ivarValue = [TrainInjector iVarDefaultValueForType:ivarType];
-    }
     [instance setValue:ivarValue forKey:ivarName];
 }
 
 +(NSArray*)getAllObjectsWithProtocol:(Protocol*) protocol {
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
-    if (!classesForProtocol) return nil;
+    if (!classesForProtocol || [classesForProtocol count] == 0) return nil;
     NSMutableArray* instances = [[NSMutableArray alloc] initWithCapacity:[classesForProtocol count]];
     
     for (Class clazz in classesForProtocol) {
@@ -91,10 +109,9 @@
 
 +(id)getObjectWithProtocol:(Protocol*) protocol {
     NSArray* classesForProtocol = [ProtocolLocator getAllClassesByProtocolType:protocol];
-    if (!classesForProtocol) return nil;
+    if (!classesForProtocol || [classesForProtocol count] == 0) return nil;
     Class clazz = [classesForProtocol objectAtIndex:0];
-    id instance = [[TrainInjector getObject:clazz] retain];
-    return [instance autorelease];
+    return [TrainInjector getObject:clazz];
 }
 
 +(id)getObject:(Class) clazz {
@@ -109,7 +126,7 @@
 
         [TrainInjector setValueForIvar:ivar inObjectInstance:classInstance];
     }
-    return classInstance;
+    return [classInstance autorelease];
 }
 
 

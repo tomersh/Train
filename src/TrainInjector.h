@@ -14,10 +14,13 @@
 
 @interface TrainInjector : NSObject
 
-+(id)getObject:(Class) clazz;
++(id) getObject:(Class) clazz;
 
-+(id)getObjectWithProtocol:(Protocol*) protocol;
++(id) getObjectWithProtocol:(Protocol*) protocol;
 
-+(NSArray*)getAllObjectsWithProtocol:(Protocol*) protocol;
++(NSArray*) getAllObjectsWithProtocol:(Protocol*) protocol;
+
+
++(void) setIocPrefix:(NSString*) iocPrefix;
 
 @end
