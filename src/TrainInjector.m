@@ -31,6 +31,10 @@ static NSString* _iocPrefix;
     _iocPrefix = [iocPrefix retain];
 }
 
++(NSString*) getIocPrefix {
+    return _iocPrefix;
+}
+
 +(NSString*) getIvarName:(Ivar) iVar {
     return [NSString stringWithUTF8String:ivar_getName(iVar)];
 }

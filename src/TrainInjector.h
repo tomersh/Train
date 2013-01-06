@@ -22,5 +22,6 @@
 
 
 +(void) setIocPrefix:(NSString*) iocPrefix;
++(NSString*) getIocPrefix;
 
 @end
