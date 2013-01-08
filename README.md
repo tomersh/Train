@@ -1,7 +1,7 @@
 Train
 =====
 
-a simple dependency injection framework for objective c, written while traveling in a train!
+A simple dependency injection framework for objective c, written while traveling in a train!
 
 ## Usage
 Add an Ivar to your Class file with the IOC prefix and the service you want to inject.
@@ -39,9 +39,11 @@ When an instance of MyClass is needed, initialize it with:
 
 MyClass will be initialized with the default constractor [MyClass alloc] init]. Every Ivar in it with the IOC prefix will be initialized recursively!
 
-### IOC prefix
+### Install
 
-The IOC prefix can be set in IOCDefines.h
+```
+pod 'Train'
+```
 
 ### Sample project
 
