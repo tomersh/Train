@@ -8,8 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-
-#import "TrainInjector.h"
+#import "AutoInjector.h"
 
 @interface AppDelegate () {
     UIWindow* _window;
@@ -22,13 +21,18 @@
 
 @synthesize window = _window;
 
+
++(void)initialize {
+    [AutoInjector autoInjectIoc];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
-    //This is the place where magic happens!
-    ViewController* viewController = injectClass(ViewController);
+    ViewController* viewController = [[ViewController alloc] init];
 
     self.window.rootViewController = viewController;
 

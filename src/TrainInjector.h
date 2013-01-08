@@ -1,6 +1,5 @@
 //
 //  TrainInjector.h
-//  TrainSampleProject
 //
 //  Created by Tomer Shiri on 12/19/12.
 //  Copyright (c) 2012 Tomer Shiri. All rights reserved.
@@ -19,6 +18,9 @@
 +(id) getObjectWithProtocol:(Protocol*) protocol;
 
 +(NSArray*) getAllObjectsWithProtocol:(Protocol*) protocol;
+
+
++(void) injectIocClasses:(id) classInstance;
 
 
 +(void) setIocPrefix:(NSString*) iocPrefix;

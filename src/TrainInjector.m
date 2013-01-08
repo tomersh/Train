@@ -1,6 +1,5 @@
 //
 //  ObjectInstancializationService.m
-//  TrainSampleProject
 //
 //  Created by Tomer Shiri on 12/19/12.
 //  Copyright (c) 2012 Tomer Shiri. All rights reserved.
@@ -120,17 +119,24 @@ static NSString* _iocPrefix;
 
 +(id)getObject:(Class) clazz {
     id classInstance = [[clazz alloc] init];
-    if (!classInstance) return classInstance;
+    
+    [TrainInjector injectIocClasses:classInstance];
+    
+    return [classInstance autorelease];
+}
+
++(void) injectIocClasses:(id) classInstance {
+    if (!classInstance) return;
     unsigned int numberOfIvars = 0;
-    Ivar* iVars = class_copyIvarList(clazz, &numberOfIvars);
+    Ivar* iVars = class_copyIvarList([classInstance class], &numberOfIvars);
     for (int i = 0; i < numberOfIvars; ++i) {
         Ivar ivar = iVars[i];
 
         if (![TrainInjector isIOCIvar:ivar]) continue;
-
+        
         [TrainInjector setValueForIvar:ivar inObjectInstance:classInstance];
     }
-    return [classInstance autorelease];
+
 }
 
 

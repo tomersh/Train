@@ -1,7 +1,7 @@
 Train
 =====
 
-a simple dependency injection framework for objective c, written while traveling in a train!
+A simple dependency injection framework for objective c, written while traveling in a train!
 
 ## Usage
 Add an Ivar to your Class file with the IOC prefix and the service you want to inject.
@@ -14,37 +14,33 @@ There are three injection flavours:
     id<MyProtocol> _ioc_MyProtocol //will create an instance of the first class conforming to MyProtocol.
     NSArray* _ioc_MyProtocol //will return an array containing instances of all classes conforming to MyProtocol
 }
-    
 ```
 
-Use the service in your class.
+Use the service in your class. It is already initialized!
+
+
+### How to install
+
+Copy the src folder to your project directory 
+
+-OR-
+
+```
+pod 'Train'
+```
+
+In your AppDelegate, add the following:
 
 ```objectivec
-@implementation MyClass
+#import "AutoInjector.h"
 
--(NSString*) foo {
-    return [_ioc_MyService goo];
++(void)initialize {
+    [AutoInjector autoInjectIoc];
 }
-
-@end
 ```
+Thats its, your all set and ready to go.
 
-When an instance of MyClass is needed, initialize it with:
-
-```objectivec
-    MyClass* myClass = [TrainInjector getObject:[Myclass class]];
-```
-
-### It is recursive!
-
-MyClass will be initialized with the default constractor [MyClass alloc] init]. Every Ivar in it with the IOC prefix will be initialized recursively!
-
-### IOC prefix
-
-The IOC prefix can be set in IOCDefines.h
 
 ### Sample project
 
 Check it out!
-
-Thats it, You are ready to go.
