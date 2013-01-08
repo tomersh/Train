@@ -25,6 +25,7 @@
 		F1106F3A1680C969000B3187 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1106F381680C969000B3187 /* InfoPlist.strings */; };
 		F1106F491681AB7D000B3187 /* ProtocolLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F481681AB7D000B3187 /* ProtocolLocator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F1106F4A1681AB7D000B3187 /* ProtocolLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1106F481681AB7D000B3187 /* ProtocolLocator.m */; };
+		F113B863169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F113B862169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.m */; };
 		F17814F716823042000DEB80 /* TrainInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = F17814F616823042000DEB80 /* TrainInjector.m */; };
 		F17814F816823042000DEB80 /* TrainInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = F17814F616823042000DEB80 /* TrainInjector.m */; };
 		F1DFEBA8168AFAE8009BB0B4 /* TextProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFEBA7168AFAE8009BB0B4 /* TextProvider.m */; };
@@ -87,6 +88,8 @@
 		F1106F391680C969000B3187 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F1106F481681AB7D000B3187 /* ProtocolLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolLocator.m; sourceTree = "<group>"; };
 		F1106F4B1681AB94000B3187 /* ProtocolLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolLocator.h; sourceTree = "<group>"; };
+		F113B861169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainInjectorIocPrefixTests.h; sourceTree = "<group>"; };
+		F113B862169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainInjectorIocPrefixTests.m; sourceTree = "<group>"; };
 		F17814F516823042000DEB80 /* TrainInjector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainInjector.h; sourceTree = "<group>"; };
 		F17814F616823042000DEB80 /* TrainInjector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainInjector.m; sourceTree = "<group>"; };
 		F1DFEBA6168AFAE8009BB0B4 /* TextProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextProvider.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				F1DFED53169393D4009BB0B4 /* ProtocolLocatorTests.m */,
 				F1DFED5C1696DA4D009BB0B4 /* TrainInjectorTests.h */,
 				F1DFED5D1696DA4E009BB0B4 /* TrainInjectorTests.m */,
+				F113B861169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.h */,
+				F113B862169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.m */,
 			);
 			path = TrainSampleProjectTests;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				F17814F816823042000DEB80 /* TrainInjector.m in Sources */,
 				F1DFED54169393D5009BB0B4 /* ProtocolLocatorTests.m in Sources */,
 				F1DFED5E1696DA4E009BB0B4 /* TrainInjectorTests.m in Sources */,
+				F113B863169978EB00BBDAF3 /* TrainInjectorIocPrefixTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

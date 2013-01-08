@@ -12,6 +12,8 @@
 
 #import <OBJC/runtime.h>
 
+#define injectableIvarName(name) _ioc_##name
+
 @protocol InjectedClassProtocol <NSObject>
 
 @end
@@ -23,11 +25,11 @@
 
 @interface TestResponseClass : NSObject {
     @public
-        int _ioc_primitive;
-        InjectedClass*  _ioc_shouldInjectObject;
+        int injectableIvarName(primitive);
+        InjectedClass*  injectableIvarName(shouldInjectObject);
         InjectedClass*  shouldNotInjectObject;
-        id<InjectedClassProtocol> _ioc_shouldInjectImplementation;
-        NSArray* _ioc_InjectedClassProtocol;
+        id<InjectedClassProtocol> injectableIvarName(shouldInjectImplementation);
+        NSArray* injectableIvarName(InjectedClassProtocol);
 }
 
 @end
@@ -82,27 +84,27 @@
 
 -(void) test_getObject_primitiveIvarWithIocPrefix_shouldBeSetToDefaultValue {
     TestResponseClass* resultObject = [TrainInjector getObject:[TestResponseClass class]];
-    int resultIvar = resultObject->_ioc_primitive;
+    int resultIvar = resultObject->injectableIvarName(primitive);
     STAssertEquals(resultIvar, 0, @"ioc primitive should be set to 0");
 }
 
 -(void) test_getObject_ivarWithIocPrefix_shouldinjectObject {
     TestResponseClass* resultObject = [TrainInjector getObject:[TestResponseClass class]];
-    id resultIvar = resultObject->_ioc_shouldInjectObject;
+    id resultIvar = resultObject->injectableIvarName(shouldInjectObject);
     [self assertInnerResultObjectIsValid:resultIvar expectedClass:[InjectedClass class]];
 }
 
 -(void) test_getObject_ivarWithProtocol_shouldinjectProtocolImplementation {
     [self StubProtocolLocator:@selector(oneImplementationResult:)];
     TestResponseClass* resultObject = [TrainInjector getObject:[TestResponseClass class]];
-    id resultIvar = resultObject->_ioc_shouldInjectImplementation;
+    id resultIvar = resultObject->injectableIvarName(shouldInjectImplementation);
     [self assertInnerResultObjectIsValid:resultIvar expectedClass:[InjectedClass class]];
 }
 
 -(void) test_getObject_ivarWithProtocolArray_shouldinjectArrayOfImplementations {
     [self StubProtocolLocator:@selector(multipleImplementationsResult:)];
     TestResponseClass* resultObject = [TrainInjector getObject:[TestResponseClass class]];
-    id resultIvar = resultObject->_ioc_InjectedClassProtocol;
+    id resultIvar = resultObject->injectableIvarName(InjectedClassProtocol);
     [self assertInnerResultObjectIsValid:resultIvar expectedClass:[NSArray class]];
     STAssertEquals([resultIvar count], (NSUInteger)2, @"2 implementations in stub");
     [self assertInnerResultObjectIsValid:[resultIvar objectAtIndex:0] expectedClass:[InjectedClass class]];

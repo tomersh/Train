@@ -56,7 +56,7 @@ static NSString* defaultIocPrefix = @"_ioc_";
     id actualValue = [TrainInjector getIocPrefix];
     STAssertNotNil(actualValue, @"ioc prefix cant be nil");
     STAssertTrue([actualValue isKindOfClass:[NSString class]], @"ioc prefix must be a s tring");
-    STAssertEquals(actualValue, expectedValue, @"expected ioc prefix to be %@ but was %@", expectedValue, actualValue);
+    STAssertEquals(actualValue, expectedValue, @"expected ioc prefix expected to be %@ but was %@", expectedValue, actualValue);
 }
 
 
