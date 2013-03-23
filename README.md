@@ -1,3 +1,9 @@
+#Train has evolved!
+
+Train has grew up and it is now [AppleGuice](https://github.com/tomersh/AppleGuice).
+AppleGuice is a fully featured, high performance dependency injection framework. 
+It is based on Train's core feature and concept but is 10x better.
+
 Train
 =====
 
